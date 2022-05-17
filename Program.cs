@@ -99,6 +99,7 @@ foreach (int n in list)
 //Data la lista di stringhe {"uno", "due", "tre", "quattro", "cinque", "Sei"}
 //ordinarla e stamparla in verso decrescente
 List<string>listString = new List<string>() { "uno","due","tre","quattro","cinque","sei" };
-listString.Reverse();
-foreach (string n in listString)
+SortedSet<string> listSortedSet = new SortedSet<string>();
+foreach (string s in listString) listSortedSet.Add(s);
+foreach (string n in listSortedSet)
     Console.WriteLine(n);
