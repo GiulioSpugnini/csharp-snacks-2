@@ -49,3 +49,56 @@ List<int> numeroPotenza(List<int> list, int potenza)
 //Data una lista di interi , metterli tutti al cubo
 List<int> listCubic = numeroPotenza(list, 3);
 foreach (int n in listCubic) Console.WriteLine(n);
+List<int> EseguiIlCalcolo(List<int> li, Func<int, int> fun)
+{
+    List<int> lout = new List<int>();
+    foreach (int n in li)
+        lout.Add(fun(n));
+    return lout;
+}
+List<int> lcalcolo = EseguiIlCalcolo(list, (n) => n * (n + 1) / 2);
+foreach (int n in lcalcolo)
+    Console.WriteLine(n);
+//Abbiamo in questo modo costruito una funzione "generale" per trasformare
+//tutti gli elementi di una stringa da numero intero a numero intero => nuovo = f(vecchio);
+//Purtroppo per come è stata costruita, questa funzione si applica esclusivamente alle lista di numeri interi 
+//e torna una lista di numeri interi
+//ordinare una lista di interi
+list = new List<int>() { 8, 4, 67, 12, 43, 91, 0, 1, 2, 3, 5, 5 };
+list.Sort();
+list.Reverse();  //se la volessi al contrario
+foreach (int n in list)
+    Console.WriteLine(n);
+Console.WriteLine("\n\n\n\n");
+list = new List<int>() { 8, 4, 67, 12, 43, 91, 0, 1, 2, 3, 5, 5 };
+list.Sort((int v1, int v2) =>
+{
+    if (v1 < v2)
+        return -1;
+    if (v1 == v2)
+        return 0;
+    else
+        return 1;
+});
+foreach (int n in list)
+    Console.WriteLine(n);
+//crescente
+Console.WriteLine("\n\n\n\n");
+list = new List<int>() { 8, 4, 67, 12, 43, 91, 0, 1, 2, 3, 5, 5 };
+list.Sort((int v1, int v2) =>
+{
+    if (v1 < v2)
+        return 1;
+    if (v1 == v2)
+        return 0;
+    else
+        return -1;
+});
+foreach (int n in list)
+    Console.WriteLine(n);
+//Data la lista di stringhe {"uno", "due", "tre", "quattro", "cinque", "Sei"}
+//ordinarla e stamparla in verso decrescente
+List<string>listString = new List<string>() { "uno","due","tre","quattro","cinque","sei" };
+listString.Reverse();
+foreach (string n in listString)
+    Console.WriteLine(n);
