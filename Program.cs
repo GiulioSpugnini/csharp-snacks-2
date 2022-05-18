@@ -103,3 +103,17 @@ SortedSet<string> listSortedSet = new SortedSet<string>();
 foreach (string s in listString) listSortedSet.Add(s);
 foreach (string n in listSortedSet)
     Console.WriteLine(n);
+//Esercizio finale
+//Data una lista di coppie <string, int>, stamparle ordinate rispetto alla stringa
+//una coppia in csharp si dichiara come 
+//Tuple<string, int>  quindi  una lista di coppie sarà
+List<Tuple<string, int>> lCoppie = new List<Tuple<string, int>>() {
+        new Tuple<string, int>("uno", 1),
+        new Tuple<string, int>("due", 21),
+        new Tuple<string, int>("quattro", 41),
+        new Tuple<string, int>("sette", 71),
+        new Tuple<string, int>("diciannove", 191) };
+
+lCoppie.Sort((s2, s1) => s2.Item1.CompareTo(s1.Item1));
+foreach (Tuple<string, int> s in lCoppie)
+    Console.WriteLine($"{ s.Item1} con  { s.Item2}");
